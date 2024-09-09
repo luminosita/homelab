@@ -7,10 +7,11 @@ spec:
     server: https://acme-v02.api.letsencrypt.org/directory
     email: milosh@emisia.net
     privateKeySecretRef:
-      name: cloudflare-key
+      name: cluster-issuer-account-key
     solvers:
       - dns01:
           cloudflare:
+            email: milosh@emisia.net
             apiTokenSecretRef:
               name: cloudflare-api-token
               key: api-token

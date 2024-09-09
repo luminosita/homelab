@@ -1,8 +1,4 @@
-#installCRDs: true
-crds:
-  enabled: true
-extraArgs:
-  - "--enable-gateway-api"
+installCRDs: true
 
 resources:
   limits:
