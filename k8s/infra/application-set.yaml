@@ -27,6 +27,8 @@ spec:
         name: in-cluster
         namespace: argocd
       syncPolicy:
-        automated:
-          selfHeal: true
-          prune: true
+        syncOptions:
+          - ApplyOutOfSyncOnly=true
+        # automated:
+        #   selfHeal: true
+        #   prune: true
