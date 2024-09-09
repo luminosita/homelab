@@ -4,11 +4,11 @@ metadata:
   name: monitoring
   namespace: argocd
   labels:
-    dev.stonegarden: monitoring
+    me.kundun: monitoring
 spec:
   generators:
     - git:
-        repoURL: https://github.com/vehagn/homelab
+        repoURL: https://github.com/luminosita/homelab
         revision: HEAD
         directories:
           - path: k8s/infra/monitoring/*
@@ -16,13 +16,13 @@ spec:
     metadata:
       name: '{{ path.basename }}'
       labels:
-        dev.stonegarden: controllers
+        me.kundun: controllers
     spec:
       project: monitoring
       source:
         plugin:
           name: kustomize-build-with-helm
-        repoURL: https://github.com/vehagn/homelab
+        repoURL: https://github.com/luminosita/homelab
         targetRevision: HEAD
         path: '{{ path }}'
       destination:

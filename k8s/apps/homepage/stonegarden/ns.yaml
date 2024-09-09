@@ -3,4 +3,4 @@ kind: Namespace
 metadata:
   name: stonegarden
   labels:
-    dev.stonegarden.app: homepage
+    me.kundun.app: homepage

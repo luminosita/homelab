@@ -4,11 +4,11 @@ metadata:
   name: storage
   namespace: argocd
   labels:
-    dev.stonegarden: storage
+    me.kundun: storage
 spec:
   generators:
     - git:
-        repoURL: https://github.com/vehagn/homelab
+        repoURL: https://github.com/luminosita/homelab
         revision: HEAD
         directories:
           - path: k8s/infra/storage/*
@@ -16,13 +16,13 @@ spec:
     metadata:
       name: '{{ path.basename }}'
       labels:
-        dev.stonegarden: storage
+        me.kundun: storage
     spec:
       project: storage
       source:
         plugin:
           name: kustomize-build-with-helm
-        repoURL: https://github.com/vehagn/homelab
+        repoURL: https://github.com/luminosita/homelab
         targetRevision: HEAD
         path: '{{ path }}'
       destination:

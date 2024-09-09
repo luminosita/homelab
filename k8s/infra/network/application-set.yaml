@@ -4,11 +4,11 @@ metadata:
   name: network
   namespace: argocd
   labels:
-    dev.stonegarden: network
+    me.kundun: network
 spec:
   generators:
     - git:
-        repoURL: https://github.com/vehagn/homelab
+        repoURL: https://github.com/luminosita/homelab
         revision: HEAD
         directories:
           - path: k8s/infra/network/*
@@ -16,13 +16,13 @@ spec:
     metadata:
       name: '{{ path.basename }}'
       labels:
-        dev.stonegarden: network
+        me.kundun: network
     spec:
       project: network
       source:
         plugin:
           name: kustomize-build-with-helm
-        repoURL: https://github.com/vehagn/homelab
+        repoURL: https://github.com/luminosita/homelab
         targetRevision: HEAD
         path: '{{ path }}'
       destination:
