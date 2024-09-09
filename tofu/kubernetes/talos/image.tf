@@ -30,8 +30,8 @@ data "talos_image_factory_extensions_versions" "this" {
   talos_version = var.image.version
   filters = {
     names = [
-      "i915-ucode",
-      "intel-ucode",
+      # "i915-ucode",
+      # "intel-ucode",
       "qemu-guest-agent"
     ]
   }

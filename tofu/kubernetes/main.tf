@@ -6,8 +6,8 @@ module "talos" {
   }
 
   image = {
-    version = "v1.8.0-alpha.1"
-    update_version = "v1.8.0-alpha.1" # renovate: github-releases=siderolabs/talos
+    version = "v1.7.6"
+    update_version = "v1.7.6" # renovate: github-releases=siderolabs/talos
     schematic = file("${path.module}/talos/image/schematic.yaml")
   }
 
@@ -18,51 +18,51 @@ module "talos" {
 
   cluster = {
     name            = "talos"
-    endpoint        = "192.168.1.102"
-    gateway         = "192.168.1.1"
+    endpoint        = "192.168.50.102"
+    gateway         = "192.168.50.1"
     talos_version   = "v1.8"
-    proxmox_cluster = "homelab"
+    proxmox_cluster = "proxmox"
   }
 
   nodes = {
     "ctrl-00" = {
-      host_node     = "abel"
+      host_node     = "proxmox"
       machine_type  = "controlplane"
-      ip            = "192.168.1.100"
+      ip            = "192.168.50.100"
       mac_address   = "BC:24:11:2E:C8:00"
       vm_id         = 800
       cpu           = 8
       ram_dedicated = 20480
-      igpu          = true
+#      igpu          = true
     }
     "ctrl-01" = {
-      host_node     = "euclid"
+      host_node     = "proxmox"
       machine_type  = "controlplane"
-      ip            = "192.168.1.101"
+      ip            = "192.168.50.101"
       mac_address   = "BC:24:11:2E:C8:01"
       vm_id         = 801
       cpu           = 4
       ram_dedicated = 20480
-      igpu          = true
+#      igpu          = true
     }
     "ctrl-02" = {
-      host_node     = "cantor"
+      host_node     = "proxmox"
       machine_type  = "controlplane"
-      ip            = "192.168.1.102"
+      ip            = "192.168.50.102"
       mac_address   = "BC:24:11:2E:C8:02"
       vm_id         = 802
       cpu           = 4
       ram_dedicated = 4096
     }
-    #    "work-00" = {
-    #      host_node     = "abel"
-    #      machine_type  = "worker"
-    #      ip            = "192.168.1.110"
-    #      mac_address   = "BC:24:11:2E:A8:00"
-    #      vm_id         = 810
-    #      cpu           = 8
-    #      ram_dedicated = 4096
-    #    }
+    "work-00" = {
+      host_node     = "proxmox"
+      machine_type  = "worker"
+      ip            = "192.168.50.110"
+      mac_address   = "BC:24:11:2E:A8:00"
+      vm_id         = 810
+      cpu           = 8
+      ram_dedicated = 4096
+    }
   }
 
 }
@@ -102,58 +102,61 @@ module "volumes" {
     restapi    = restapi
     kubernetes = kubernetes
   }
+
+  api_token = local.api_token
+
   proxmox_api = var.proxmox
   volumes = {
     pv-sonarr = {
-      node = "cantor"
+      node = "proxmox"
       size = "4G"
     }
     pv-radarr = {
-      node = "cantor"
+      node = "proxmox"
       size = "4G"
     }
     pv-lidarr = {
-      node = "cantor"
+      node = "proxmox"
       size = "4G"
     }
     pv-prowlarr = {
-      node = "euclid"
+      node = "proxmox"
       size = "1G"
     }
     pv-torrent = {
-      node = "euclid"
+      node = "proxmox"
       size = "1G"
     }
     pv-remark42 = {
-      node = "euclid"
+      node = "proxmox"
       size = "1G"
     }
     pv-keycloak = {
-      node = "euclid"
+      node = "proxmox"
       size = "2G"
     }
     pv-jellyfin = {
-      node = "euclid"
+      node = "proxmox"
       size = "12G"
     }
     pv-netbird-signal = {
-      node = "abel"
+      node = "proxmox"
       size = "1G"
     }
     pv-netbird-management = {
-      node = "abel"
+      node = "proxmox"
       size = "1G"
     }
     pv-plex = {
-      node = "abel"
+      node = "proxmox"
       size = "12G"
     }
     pv-prometheus = {
-      node = "abel"
+      node = "proxmox"
       size = "10G"
     }
     pv-single-database = {
-      node = "euclid"
+      node = "proxmox"
       size = "4G"
     }
   }

@@ -6,6 +6,8 @@ module "proxmox-volume" {
     restapi = restapi
   }
 
+  api_token = var.api_token
+
   proxmox_api = var.proxmox_api
   volume = {
     name    = each.key

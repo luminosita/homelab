@@ -1,8 +1,11 @@
+variable "api_token" {
+  type = string
+}
+
 variable "proxmox_api" {
   type = object({
     endpoint  = string
     insecure  = bool
-    api_token = string
   })
   sensitive = true
 }

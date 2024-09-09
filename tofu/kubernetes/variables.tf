@@ -1,13 +1,29 @@
+###############################  API ##############################
+variable "api_token_id" {
+    type    = string
+}
+
+variable "api_token_secret" {
+    type    = string
+}
+
+
+###############################  PROXMOX ##############################
+
 variable "proxmox" {
   type = object({
-    name         = string
-    cluster_name = string
-    endpoint     = string
-    insecure     = bool
-    username     = string
-    api_token    = string
+    name                    = string
+    cluster_name            = string
+    endpoint                = string
+    insecure                = bool
+    ssh_username            = string
+    ssh_private_key_file    = string
   })
   sensitive = true
+}
+
+locals {
+  api_token = "${var.api_token_id}=${var.api_token_secret}"
 }
 
 #variable "cluster_config" {

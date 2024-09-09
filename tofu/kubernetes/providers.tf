@@ -10,11 +10,11 @@ terraform {
     }
     talos = {
       source  = "siderolabs/talos"
-      version = "0.6.0-alpha.1"
+      version = "0.6.0-alpha.2"
     }
     restapi = {
       source  = "Mastercard/restapi"
-      version = "1.19.1"
+      version = "1.20.0"
     }
   }
 }
@@ -23,10 +23,12 @@ provider "proxmox" {
   endpoint = var.proxmox.endpoint
   insecure = var.proxmox.insecure
 
-  api_token = var.proxmox.api_token
+  api_token = local.api_token
+  
   ssh {
-    agent    = true
-    username = var.proxmox.username
+      agent               = false
+      username            = var.proxmox.ssh_username
+      private_key         = file(var.proxmox.ssh_private_key_file)
   }
 }
 
@@ -37,7 +39,7 @@ provider "restapi" {
 
   headers = {
     "Content-Type"  = "application/json"
-    "Authorization" = "PVEAPIToken=${var.proxmox.api_token}"
+    "Authorization" = "PVEAPIToken=${local.api_token}"
   }
 }
 
