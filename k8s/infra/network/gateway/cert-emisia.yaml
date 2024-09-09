@@ -1,17 +1,17 @@
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: cert-stonegarden
+  name: cert-emisia
   namespace: gateway
 spec:
   dnsNames:
-    - "*.stonegarden.dev"
-    - stonegarden.dev
+    - "*.emisia.net"
+    - emisia.net
   issuerRef:
     group: cert-manager.io
     kind: ClusterIssuer
     name: cloudflare-cluster-issuer
-  secretName: cert-stonegarden
+  secretName: cert-emisia
   usages:
     - digital signature
     - key encipherment
