@@ -11,12 +11,12 @@ spec:
     standardFlowEnabled: true
     directAccessGrantsEnabled: true
     oauth2DeviceAuthorizationGrantEnabled: true
-    baseUrl: "https://netbird.stonegarden.dev"
+    baseUrl: "https://netbird.emisia.net"
     validRedirectUris:
       - "http://localhost:53000"
-      - "https://netbird.stonegarden.dev/*"
+      - "https://netbird.emisia.net/*"
     validPostLogoutRedirectUris:
-      - "https://netbird.stonegarden.dev/*"
+      - "https://netbird.emisia.net/*"
     webOrigins:
       - "+"
     realmIdRef:

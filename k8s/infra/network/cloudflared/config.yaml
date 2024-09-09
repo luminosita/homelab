@@ -7,22 +7,22 @@ warp-routing:
   enabled: true
 
 ingress:
-  - hostname: hello.stonegarden.dev
+  - hostname: hello.emisia.net
     service: hello_world
-#  - hostname: proxmox.stonegarden.dev
+#  - hostname: proxmox.emisia.net
 #    service: https://proxmox.proxmox.svc.cluster.local:443
 #    originRequest:
-#      originServerName: proxmox.stonegarden.dev
-#  - hostname: truenas.stonegarden.dev
+#      originServerName: proxmox.emisia.net
+#  - hostname: truenas.emisia.net
 #    service: https://truenas.truenas.svc.cluster.local:443
 #    originRequest:
-#      originServerName: truenas.stonegarden.dev
-  - hostname: "*.stonegarden.dev"
+#      originServerName: truenas.emisia.net
+  - hostname: "*.emisia.net"
     service: https://cilium-gateway-external.gateway.svc.cluster.local:443
     originRequest:
-      originServerName: "*.stonegarden.dev"
-  - hostname: stonegarden.dev
+      originServerName: "*.emisia.net"
+  - hostname: emisia.net
     service: https://cilium-gateway-external.gateway.svc.cluster.local:443
     originRequest:
-      originServerName: stonegarden.dev
+      originServerName: emisia.net
   - service: http_status:404

@@ -142,13 +142,13 @@ filtering:
   parental_block_host: family-block.dns.adguard.com
   safebrowsing_block_host: standard-block.dns.adguard.com
   rewrites:
-    - domain: proxmox.stonegarden.dev
+    - domain: proxmox.emisia.net
       answer: 192.168.50.221
-    - domain: truenas.stonegarden.dev
+    - domain: truenas.emisia.net
       answer: 192.168.50.221
-    - domain: '*.stonegarden.dev'
+    - domain: '*.emisia.net'
       answer: 192.168.50.220
-    - domain: stonegarden.dev
+    - domain: emisia.net
       answer: 192.168.50.220
   safebrowsing_cache_size: 1048576
   safesearch_cache_size: 1048576

@@ -10,7 +10,7 @@ spec:
     - name: internal
       namespace: gateway
   hostnames:
-    - "stonegarden.dev"
+    - "emisia.net"
   rules:
     - matches:
         - path:

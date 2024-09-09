@@ -10,7 +10,7 @@ spec:
     - name: internal
       namespace: gateway
   hostnames:
-    - "haos.stonegarden.dev"
+    - "haos.emisia.net"
   rules:
     - backendRefs:
         - name: home-assistant
