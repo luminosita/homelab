@@ -8,6 +8,9 @@ output
 
 *.tfstate
 *.tfstate.*
+**/*.tfplan
+
+**/.DS_Store
 
 *.tfvars
 *.tfvars.json
